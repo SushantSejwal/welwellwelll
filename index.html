@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Models by Mark Manson — Complete Cheat Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1A2744;
+  --navy2: #243260;
+  --blue: #2C5282;
+  --blue2: #3B6CB5;
+  --blue-lt: #EBF2FF;
+  --blue-mid: #B5D4F4;
+  --gold: #C9A84C;
+  --gold-lt: #FDF6E3;
+  --gold-mid: #FAC775;
+  --bg: #F9F8F6;
+  --bg2: #F0EDE8;
+  --bg3: #E8E4DE;
+  --dark: #1A1A2E;
+  --muted: #4A4A5A;
+  --light: #888899;
+  --do-bg: #E8F5E9;
+  --dont-bg: #FFEBEE;
+  --do-txt: #1B5E20;
+  --dont-txt: #B71C1C;
+  --do-lbl: #2E7D32;
+  --dont-lbl: #C62828;
+  --border: #D5D0C8;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--bg);
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.page-wrap { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+/* COVER */
+.cover {
+  background: var(--navy);
+  color: white;
+  padding: 4rem 3rem;
+  border-radius: 16px;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 260px; height: 260px;
+  border: 2px solid rgba(201,168,76,0.2);
+  border-radius: 50%;
+}
+.cover::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 180px; height: 180px;
+  border: 2px solid rgba(201,168,76,0.15);
+  border-radius: 50%;
+}
+.cover h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.4rem;
+  position: relative;
+}
+.cover .subtitle {
+  font-size: 1.1rem;
+  color: var(--gold);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.cover .author {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: 'Source Serif 4', serif;
+  position: relative;
+}
+.cover .stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  position: relative;
+}
+.cover .stat { text-align: center; }
+.cover .stat-num {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+.cover .stat-lbl {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* PREMISE */
+.premise {
+  background: var(--blue-lt);
+  border-left: 5px solid var(--blue);
+  border-right: 5px solid var(--blue);
+  padding: 1.2rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* TOC */
+.toc { margin-bottom: 2.5rem; }
+.toc h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--dark); margin-bottom: 1rem; }
+.toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.toc-item {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.toc-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--blue2);
+  min-width: 36px;
+}
+.toc-text { }
+.toc-title { font-size: 0.85rem; font-weight: 600; color: var(--dark); display: block; }
+.toc-desc { font-size: 0.75rem; color: var(--light); display: block; margin-top: 1px; }
+
+/* PART BANNER */
+.part-banner {
+  background: var(--navy);
+  color: white;
+  padding: 1.2rem 1.5rem;
+  border-radius: 10px;
+  margin: 2.5rem 0 1.5rem;
+}
+.part-banner .part-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.8);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.part-banner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.part-banner .part-desc {
+  font-size: 0.85rem;
+  color: rgba(180,200,230,0.8);
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* CHAPTER HEADER */
+.ch-header {
+  background: var(--bg2);
+  border-bottom: 3px solid var(--blue);
+  border-radius: 10px 10px 0 0;
+  padding: 0.9rem 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+.ch-header .ch-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.ch-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+.ch-body { margin-bottom: 1.5rem; }
+
+/* GRIDS */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+.grid4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+
+/* CARDS */
+.card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+}
+.card.blue { background: var(--blue-lt); border-color: var(--blue-mid); }
+.card.gold { background: var(--gold-lt); border-color: var(--gold-mid); }
+.card.green { background: var(--do-bg); border-color: #a5d6a7; }
+.card.red { background: var(--dont-bg); border-color: #ef9a9a; }
+.card.dark { background: var(--navy); border-color: var(--navy2); color: white; }
+.card.navy2 { background: var(--navy2); border-color: #344a7a; }
+.card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.6rem;
+}
+.card.blue h4 { color: #0c447c; }
+.card.gold h4 { color: #633806; }
+.card.green h4 { color: var(--do-lbl); }
+.card.red h4 { color: var(--dont-lbl); }
+.card.dark h4 { color: var(--gold); }
+.card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.4rem; }
+.card.blue p { color: #1a3a6b; }
+.card.gold p { color: #5c3410; }
+.card.green p { color: var(--do-txt); }
+.card.red p { color: var(--dont-txt); }
+.card.dark p { color: rgba(180,200,230,0.9); }
+
+/* FULL-WIDTH CARDS */
+.full-card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 0.75rem;
+}
+.full-card.blue { background: var(--blue-lt); border-color: var(--blue-mid); }
+.full-card.gold { background: var(--gold-lt); border-color: var(--gold-mid); }
+.full-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.7rem;
+}
+.full-card.blue h4 { color: #0c447c; }
+.full-card.gold h4 { color: #633806; }
+.full-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.5rem; }
+.full-card.blue p { color: #1a3a6b; }
+.full-card.gold p { color: #5c3410; }
+
+/* LISTS */
+ul.tips { list-style: none; padding: 0; }
+ul.tips li {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 0.3rem;
+  padding-left: 1.1rem;
+  position: relative;
+}
+ul.tips li::before { content: "▸"; color: var(--blue2); position: absolute; left: 0; font-size: 0.75rem; top: 3px; }
+ul.tips li.c::before { content: "✓"; color: var(--do-lbl); }
+ul.tips li.x::before { content: "✗"; color: var(--dont-lbl); }
+ul.tips li.gold::before { content: "★"; color: var(--gold); }
+.card.blue ul.tips li { color: #1a3a6b; }
+.card.blue ul.tips li::before { color: var(--blue); }
+.card.gold ul.tips li { color: #5c3410; }
+.card.gold ul.tips li::before { color: #854f0b; }
+.card.green ul.tips li { color: var(--do-txt); }
+.card.green ul.tips li::before { color: var(--do-lbl); }
+.card.red ul.tips li { color: var(--dont-txt); }
+.card.red ul.tips li::before { color: var(--dont-lbl); }
+.card.dark ul.tips li { color: rgba(180,200,230,0.9); }
+.card.dark ul.tips li::before { color: var(--gold); }
+
+/* EXAMPLES / WRONG BOXES */
+.ex-box {
+  background: var(--blue-lt);
+  border-left: 3.5px solid var(--blue2);
+  padding: 0.6rem 0.9rem;
+  border-radius: 0 7px 7px 0;
+  font-size: 0.82rem;
+  color: #0c447c;
+  font-style: italic;
+  margin: 0.4rem 0;
+  line-height: 1.55;
+}
+.wr-box {
+  background: var(--dont-bg);
+  border-left: 3.5px solid var(--dont-lbl);
+  padding: 0.6rem 0.9rem;
+  border-radius: 0 7px 7px 0;
+  font-size: 0.82rem;
+  color: var(--dont-txt);
+  font-style: italic;
+  margin: 0.4rem 0;
+  line-height: 1.55;
+}
+
+/* CALLOUT */
+.callout {
+  background: var(--blue-lt);
+  border: 2px solid var(--blue);
+  border-radius: 10px;
+  padding: 1.1rem 1.5rem;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--navy);
+  font-weight: 600;
+  margin: 0.75rem 0;
+  line-height: 1.6;
+}
+.callout.gold {
+  background: var(--gold-lt);
+  border-color: var(--gold);
+  color: #5c3410;
+}
+
+/* QUOTE BOX */
+.quote-box {
+  background: var(--bg2);
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  padding: 1.3rem 2rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+.quote-box p {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--dark);
+  line-height: 1.6;
+  margin-bottom: 0.4rem;
+}
+.quote-box .src {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--blue);
+  font-style: normal;
+}
+
+/* STEPS */
+.steps { }
+.step-row {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.65rem 0;
+  border-bottom: 0.5px solid var(--border);
+  align-items: flex-start;
+}
+.step-row:last-child { border-bottom: none; }
+.step-num {
+  min-width: 26px;
+  height: 26px;
+  background: var(--blue);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-family: 'Playfair Display', serif;
+}
+.step-row .step-text {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.55;
+  flex: 1;
+}
+.step-row .step-title {
+  font-weight: 600;
+  color: var(--dark);
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: 0.85rem;
+}
+
+/* BADGES / LABELS */
+.badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.badge.blue { background: var(--blue-lt); color: #185fa5; }
+.badge.gold { background: var(--gold-lt); color: #854f0b; }
+.badge.red { background: var(--dont-bg); color: var(--dont-lbl); }
+.badge.green { background: var(--do-bg); color: var(--do-lbl); }
+.badge.gray { background: var(--bg3); color: #5f5e5a; }
+.badge.dark { background: var(--navy); color: var(--gold); }
+
+/* SUMMARY SECTION */
+.summary-container {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.summary-row {
+  padding: 0.9rem 1.2rem;
+  border-bottom: 0.5px solid rgba(44,64,128,0.3);
+}
+.summary-row:nth-child(odd) { background: var(--navy); }
+.summary-row:nth-child(even) { background: var(--navy2); }
+.summary-row:last-child { border-bottom: none; }
+.summary-row h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.summary-row p {
+  font-size: 0.82rem;
+  color: rgba(180,200,220,0.9);
+  line-height: 1.55;
+}
+
+/* GLOSSARY */
+.gloss-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 1.5rem;
+}
+.gloss-item {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+}
+.gloss-item strong {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+  font-family: 'Playfair Display', serif;
+}
+.gloss-item span {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ACTION BOX */
+.action-box {
+  background: var(--gold-lt);
+  border-left: 4px solid var(--gold);
+  padding: 0.6rem 0.9rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.82rem;
+  color: #5c3410;
+  margin: 0.5rem 0;
+}
+.action-box::before {
+  content: "★ Action: ";
+  font-weight: 700;
+}
+
+/* SPECTRUM CARD */
+.spectrum {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+.spectrum-col {
+  padding: 1rem;
+}
+.spectrum-col.bad { background: var(--dont-bg); }
+.spectrum-col.good { background: var(--do-bg); }
+.spectrum-col h5 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+}
+.spectrum-col.bad h5 { color: var(--dont-lbl); }
+.spectrum-col.good h5 { color: var(--do-lbl); }
+.spectrum-col p { font-size: 0.8rem; margin-bottom: 0.3rem; }
+.spectrum-col.bad p { color: var(--dont-txt); }
+.spectrum-col.good p { color: var(--do-txt); }
+
+/* DO/DONT SIDE BY SIDE */
+.do-dont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+.do-side { background: var(--do-bg); padding: 1rem; }
+.dont-side { background: var(--dont-bg); padding: 1rem; }
+.do-side h5 { font-size: 0.8rem; font-weight: 700; color: var(--do-lbl); margin-bottom: 0.5rem; }
+.dont-side h5 { font-size: 0.8rem; font-weight: 700; color: var(--dont-lbl); margin-bottom: 0.5rem; }
+
+/* DIVIDER */
+.divider { height: 1px; background: var(--border); margin: 2rem 0; }
+
+/* SECTION LABEL */
+.section-lbl {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--light);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* SCROLLBACK */
+.back-to-top {
+  text-align: center;
+  margin-top: 2rem;
+}
+.back-to-top a {
+  font-size: 0.85rem;
+  color: var(--blue);
+  text-decoration: none;
+  border: 0.5px solid var(--blue-mid);
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  display: inline-block;
+}
+.back-to-top a:hover { background: var(--blue-lt); }
+
+/* RESPONSIVE */
+@media (max-width: 720px) {
+  .grid2, .grid3, .grid4 { grid-template-columns: 1fr; }
+  .do-dont, .spectrum { grid-template-columns: 1fr; }
+  .toc-grid { grid-template-columns: 1fr; }
+  .gloss-grid { grid-template-columns: 1fr; }
+  .cover h1 { font-size: 2.5rem; }
+  .cover .stats { gap: 1rem; }
+}
+@media (max-width: 500px) {
+  .page-wrap { padding: 1rem 1rem 3rem; }
+}
+
+strong { font-weight: 600; color: var(--dark); }
+em { font-style: italic; }
+</style>
+</head>
+<body id="top">
+<div class="page-wrap">
+
+<!-- COVER -->
+<div class="cover">
+  <h1>Models</h1>
+  <div class="subtitle">Attract Women Through Honesty</div>
+  <div class="author">by Mark Manson &nbsp;·&nbsp; Complete Cheat Sheet</div>
+  <div class="stats">
+    <div class="stat"><span class="stat-num">14</span><span class="stat-lbl">Chapters</span></div>
+    <div class="stat"><span class="stat-num">5</span><span class="stat-lbl">Parts</span></div>
+    <div class="stat"><span class="stat-num">40</span><span class="stat-lbl">Page PDF</span></div>
+    <div class="stat"><span class="stat-num">100%</span><span class="stat-lbl">Content</span></div>
+  </div>
+</div>
+
+<div class="premise">
+  "Attraction comes from expressing yourself honestly and vulnerably — not from techniques, lines, or performance."<br>The entire book in one sentence.
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc" id="toc">
+  <h2>Table of Contents</h2>
+  <div class="toc-grid">
+    <div class="toc-item"><span class="toc-num">Ch 1</span><div class="toc-text"><span class="toc-title">Non-Neediness</span><span class="toc-desc">The foundation — investment, neediness, and the real definition of attraction</span></div></div>
+    <div class="toc-item"><span class="toc-num">Ch 2</span><div class="toc-text"><span class="toc-title">Power in Vulnerability</span><span class="toc-desc">Why showing your real self is the highest-status move</span></div></div>
+    <div class="toc-item"><span class="toc-num">Ch 3</span><div class="toc-text"><span class="toc-title">The Gift of Truth</span><span class="toc-desc">Honesty, unconditionality, limits, and finding your truth</span></div></div>
+    <div class="toc-item"><span class="toc-num">Ch 4</span><div class="toc-text"><span class="toc-title">Polarisation</span><span class="toc-desc">Three categories of women and why you must force a decision</span></div></div>
+    <div class="toc-item"><span class="toc-num">Ch 5</span><div class="toc-text"><span class="toc-title">Rejection and Success</span><span class="toc-desc">Why rejection is useful and how to reframe failure</span></div></div>
+    <div class="toc-item"><span class="toc-num">Ch 6</span><div class="toc-text"><span class="toc-title">The Three Fundamentals</span><span class="toc-desc">Lifestyle, action, and communication — the complete framework</span></div></div>
+    <div class="toc-item"><span class="toc-num">Ch 7</span><div class="toc-text"><span class="toc-title">Demographics</span><span class="toc-desc">Finding the right women in the right contexts</span></div></div>
+    <div class="toc-item"><span class="toc-num">Ch 8</span><div class="toc-text"><span class="toc-title">Lifestyle & Presentation</span><span class="toc-desc">Fashion, fitness, body language, vocal tonality, character</span></div></div>
+    <div class="toc-item"><span class="toc-num">Ch 9</span><div class="toc-text"><span class="toc-title">What Are Your Stories?</span><span class="toc-desc">The lies you tell yourself and defense mechanisms</span></div></div>
+    <div class="toc-item"><span class="toc-num">Ch 10</span><div class="toc-text"><span class="toc-title">How to Overcome Anxiety</span><span class="toc-desc">Incremental exposure, courage, and the staircase method</span></div></div>
+    <div class="toc-item"><span class="toc-num">Ch 11</span><div class="toc-text"><span class="toc-title">Your Intentions</span><span class="toc-desc">Sub-communication, creepiness, and emotional connection</span></div></div>
+    <div class="toc-item"><span class="toc-num">Ch 12</span><div class="toc-text"><span class="toc-title">How to Flirt Better</span><span class="toc-desc">Conversation, cold reading, storytelling, humour</span></div></div>
+    <div class="toc-item"><span class="toc-num">Ch 13</span><div class="toc-text"><span class="toc-title">The Dating Process</span><span class="toc-desc">Phone numbers, texting rules, dates, and how to behave</span></div></div>
+    <div class="toc-item"><span class="toc-num">Ch 14</span><div class="toc-text"><span class="toc-title">Physicality and Sex</span><span class="toc-desc">Physical escalation, signals, kissing, and the bedroom</span></div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ PART I -->
+<div class="part-banner">
+  <span class="part-label">Part I</span>
+  <h2>Reality</h2>
+  <span class="part-desc">The psychological foundation of attraction — what it actually is and why it works the way it does</span>
+</div>
+
+<!-- CH 1 -->
+<div class="ch-header"><span class="ch-num">Chapter 1</span><h3>Non-Neediness — The Foundation of Attraction</h3></div>
+<div class="ch-body">
+  <div class="quote-box">
+    <p>"A man's attractiveness is inversely proportional to how needy he is."</p>
+    <span class="src">— Mark Manson</span>
+  </div>
+
+  <div class="full-card">
+    <h4>The core definition</h4>
+    <p><strong>Neediness</strong> = placing a higher priority on others' perceptions of you than your own perception of yourself. Your actions are primarily motivated by winning approval from others.</p>
+    <p><strong>Non-neediness</strong> = placing a higher priority on your own perception of yourself than others' perceptions. Your actions flow from your own values and desires.</p>
+    <p>Neediness infiltrates ALL behaviours — it defines how you stand, smile, the jokes you tell, the car you drive, the wine you drink. When people say "he just has IT" — that IT is non-neediness. It exudes from everything he does.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="full-card">
+      <h4>Understanding investment</h4>
+      <p>Investment = the degree to which you sacrifice or alter your own thoughts, feelings, and motivations for someone else.</p>
+      <p><strong>The key rule:</strong> As a man, you should not be willing to sacrifice your thoughts, feelings, and motivations for someone else more than they sacrifice theirs for you.</p>
+      <p>When you are more invested in her than in yourself — whether in time, energy, emotion, or money — she senses this instinctively and loses attraction. The reverse is equally true: investing in yourself more than in her triggers attraction automatically.</p>
+      <div class="action-box">Ask yourself before any action with a woman: "Am I doing this for approval, or because it genuinely reflects my values?"</div>
+    </div>
+    <div class="full-card">
+      <h4>James (needy) vs Jeff (non-needy)</h4>
+      <p><strong>James — high neediness:</strong></p>
+      <ul class="tips">
+        <li class="x">Rearranges his entire schedule at her whim</li>
+        <li class="x">Buys gifts constantly trying to earn her favour</li>
+        <li class="x">Agrees with everything, never pushes back</li>
+        <li class="x">Listens to her vent even when she's being unfair</li>
+        <li class="x">Gets dumped and becomes inconsolable for months</li>
+      </ul>
+      <p style="margin-top:0.6rem"><strong>Jeff — non-needy:</strong></p>
+      <ul class="tips">
+        <li class="c">Lives his life — she fits into it, not the other way around</li>
+        <li class="c">Doesn't check if she approved — he just does what he wants</li>
+        <li class="c">Answers texts when he feels like it, not frantically</li>
+        <li class="c">If she doesn't like him, he figures he's better off anyway</li>
+        <li class="c">Women constantly initiate contact with him</li>
+      </ul>
+      <p style="margin-top:0.5rem">Jeff isn't richer or better-looking. He simply invests more in himself than in her approval.</p>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>The three zones: needy → non-needy → narcissistic</h4>
+    <div class="spectrum">
+      <div class="spectrum-col bad">
+        <h5>Needy</h5>
+        <ul class="tips">
+          <li class="x">Only cares about what others want — even at his own expense</li>
+          <li class="x">Buys drinks before knowing her</li>
+          <li class="x">Agrees with everything she says</li>
+          <li class="x">Texts dozens of times waiting for a reply</li>
+          <li class="x">Rearranges his life around her availability</li>
+        </ul>
+        <p style="margin-top:0.5rem;font-size:0.78rem">Result: She loses all respect and eventually leaves.</p>
+      </div>
+      <div class="spectrum-col good">
+        <h5>Non-needy ✓ Goal</h5>
+        <ul class="tips">
+          <li class="c">Cares about himself AND genuinely cares about her</li>
+          <li class="c">Has his own values and lives by them</li>
+          <li class="c">Genuinely interested in HER as a person</li>
+          <li class="c">Sets clear limits and maintains them calmly</li>
+          <li class="c">Doesn't need her approval to feel complete</li>
+        </ul>
+        <p style="margin-top:0.5rem;font-size:0.78rem">Result: Real attraction, real connection, real relationships.</p>
+      </div>
+      <div class="spectrum-col bad">
+        <h5>Narcissistic</h5>
+        <ul class="tips">
+          <li class="x">Only cares about himself — minimises importance of others</li>
+          <li class="x">Uses women as trophies or status symbols</li>
+          <li class="x">Blames women when rejected</li>
+          <li class="x">Ends up with needy, damaged, chaotic women</li>
+          <li class="x">Short-term results, long-term emptiness</li>
+        </ul>
+        <p style="margin-top:0.5rem;font-size:0.78rem">Result: Shallow, toxic relationships that drain you.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>The seduction process — two methods</h4>
+    <div class="grid2">
+      <div>
+        <div class="badge red">Method 1 — Performance (avoid)</div>
+        <p>You pretend to be less invested than you are through memorised lines, techniques, and games. Creates a short-term illusion. Women eventually see through it. The moment you stop performing — after sex, after she commits — your true neediness resurfaces and she loses attraction rapidly. This is a band-aid, not a cure.</p>
+      </div>
+      <div>
+        <div class="badge green">Method 2 — Genuine non-neediness (the goal)</div>
+        <p>You actually move your measure of success from external goals (get her number, get laid) to internal goals (better relationships, emotional fulfilment, general happiness). Nothing to perform. No scripts to remember. This permeates everything you say and do permanently and authentically.</p>
+      </div>
+    </div>
+    <p><strong>The book's entire thesis:</strong> Method 2 is the only permanent solution. Everything in the book is about achieving genuine non-neediness — not performing it.</p>
+  </div>
+
+  <div class="full-card">
+    <h4>Mindset shifts to start practising today</h4>
+    <div class="grid2">
+      <div>
+        <div class="wr-box">Instead of: "I hope she likes me."</div>
+        <div class="ex-box">Think: "I wonder if I like her."</div>
+        <div class="wr-box">Instead of: "I hope she doesn't reject me."</div>
+        <div class="ex-box">Think: "I hope I find out if she's right for me."</div>
+        <div class="wr-box">Instead of: "What should I say to impress her?"</div>
+        <div class="ex-box">Think: "What's something I genuinely enjoy talking about?"</div>
+      </div>
+      <div>
+        <div class="wr-box">Instead of: "She didn't text back — what does it mean?"</div>
+        <div class="ex-box">Think: "I have other things going on. She'll reach out when she wants to."</div>
+        <div class="wr-box">Instead of: "I need to be perfect for her."</div>
+        <div class="ex-box">Think: "I'm looking for someone who appreciates who I actually am."</div>
+        <div class="wr-box">Instead of: "Getting upset that she doesn't want to be with me."</div>
+        <div class="ex-box">Think: "It means we probably wouldn't have been happy together."</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CH 2 -->
+<div class="ch-header"><span class="ch-num">Chapter 2</span><h3>Power in Vulnerability — Strength Through Exposure</h3></div>
+<div class="ch-body">
+  <div class="callout">"Humans are attracted to each other's rough edges." Show your rough edges. Stop trying to be perfect. — Robert Glover (quoted by Manson)</div>
+
+  <div class="grid2">
+    <div class="full-card">
+      <h4>What vulnerability actually means</h4>
+      <p>Vulnerability is NOT crying, whining, or begging for acceptance. That is <strong>surrender</strong> — not vulnerability.</p>
+      <p>True vulnerability = the willingness to expose your real self and accept that some people won't like it — and being completely OK with that. It is courageous, not weak.</p>
+      <p>Vulnerability shows up in many forms:</p>
+      <ul class="tips">
+        <li><strong>Social:</strong> introducing yourself to strangers you don't know</li>
+        <li><strong>Romantic:</strong> telling a woman directly that you find her attractive</li>
+        <li><strong>Opinion:</strong> stating a view that others might strongly disagree with</li>
+        <li><strong>Action:</strong> going for the kiss, asking for the number, making any move</li>
+        <li><strong>Emotional:</strong> sharing genuine feelings without fishing for sympathy</li>
+        <li><strong>Sexual:</strong> expressing your desire openly without shame or apology</li>
+      </ul>
+      <p style="margin-top:0.5rem">All of these require you to stick your neck out. They all risk rejection. That willingness to risk is what communicates high status.</p>
+    </div>
+    <div class="full-card">
+      <h4>Vulnerable vs closed man — the comparison</h4>
+      <p><strong>Vulnerable man:</strong></p>
+      <ul class="tips">
+        <li class="c">Stands tall, makes eye contact, says what he thinks</li>
+        <li class="c">When wrong, admits it and moves on without drama</li>
+        <li class="c">Expresses emotions without needing them validated</li>
+        <li class="c">Approaches women he finds attractive directly</li>
+        <li class="c">Comfortable with rejection — doesn't take it personally</li>
+        <li class="c">Shares his real story, including the rough and imperfect parts</li>
+      </ul>
+      <p style="margin-top:0.6rem"><strong>Closed/performing man:</strong></p>
+      <ul class="tips">
+        <li class="x">Avoids saying anything that might upset anyone</li>
+        <li class="x">Hides mistakes and blames others when things go wrong</li>
+        <li class="x">Puts on a cool, aloof persona — never genuinely opens up</li>
+        <li class="x">Terrified of rejection — avoids situations where it might happen</li>
+        <li class="x">Smiles and says everything's fine even when it's not</li>
+      </ul>
+      <p style="margin-top:0.5rem">Paradox: the "protected" man sub-communicates insecurity. The vulnerable man sub-communicates strength and high status.</p>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>The Pain Period — why it gets worse before it gets better</h4>
+    <p>When you start opening yourself up emotionally after a lifetime of bottling things up, your first attempts will be messy and embarrassing. This is unavoidable — it is called the Pain Period.</p>
+    <div class="grid2">
+      <div>
+        <p><strong>What the Pain Period looks like:</strong></p>
+        <ul class="tips">
+          <li>Oversharing with a woman who wasn't ready for it — she pulls back</li>
+          <li>Expressing sexual interest awkwardly and it comes across wrong</li>
+          <li>Saying something honest and getting rejected because of it</li>
+          <li>Old emotional baggage surfacing and making you look temporarily insecure</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Why you must go through it anyway:</strong></p>
+        <p>If you've spent years suppressing your emotions and hiding your real self, it's all stored up inside you. Until you start expressing it — however awkwardly at first — it stays there, quietly making you needy and unattractive. The embarrassing moments are the emotional debt being paid off.</p>
+        <p><em>"The less you talk about your shame, the more of it you have."</em> — Brené Brown</p>
+      </div>
+    </div>
+    <div class="action-box">Write down one thing you've been afraid to say or do with a woman. Then go do it — even imperfectly. The first attempt is always the hardest and most important.</div>
+  </div>
+
+  <div class="full-card">
+    <h4>What vulnerability is NOT</h4>
+    <div class="grid3">
+      <div class="card red">
+        <h4>Not sob stories for sympathy</h4>
+        <p>Sharing vulnerability to get her to feel sorry for you and sleep with you is just another form of performance. Women sense the manipulation immediately. Real vulnerability has no agenda — you share it regardless of outcome.</p>
+      </div>
+      <div class="card red">
+        <h4>Not emotional dumping</h4>
+        <p>Dumping every fear, insecurity, and feeling onto a woman you just met is not vulnerability — it's neediness wearing an emotional mask. It creates the opposite of attraction.</p>
+      </div>
+      <div class="card red">
+        <h4>Not surrendering to rejection</h4>
+        <p>Changing your beliefs and personality when someone rejects you is the opposite of vulnerability. Vulnerability means expressing yourself and accepting the reaction — not bending yourself to change it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CH 3 -->
+<div class="ch-header"><span class="ch-num">Chapter 3</span><h3>The Gift of Truth — Unconditional Honesty</h3></div>
+<div class="ch-body">
+  <div class="callout">"The truth is always shining through. You cannot fake vulnerability. By its very definition, it is impossible."</div>
+
+  <div class="grid2">
+    <div class="full-card">
+      <h4>Unconditional honesty — the only kind that works</h4>
+      <p>Honesty only creates attraction when it is given unconditionally — with no expectation of anything in return. The moment you attach a condition, it becomes manipulation.</p>
+      <div class="wr-box">Conditional: Complimenting her so she'll like you more → she senses the transaction → repels her</div>
+      <div class="ex-box">Unconditional: Complimenting her because you genuinely felt it, regardless of her response → she lights up and feels truly seen</div>
+      <p style="margin-top:0.5rem">This applies to everything: gifts, attention, time, favours. Given conditionally = manipulation. Given unconditionally = attractive.</p>
+      <p><strong>Men who buy women drinks, heap on compliments, and take them to extravagant dinners</strong> are not giving gifts — they are brokering deals. The drinks are bought with the provision that she stays and talks. The compliments are spoken with the expectation she shows affection. Women sense this and are repelled by it.</p>
+    </div>
+    <div class="full-card">
+      <h4>The truth always shines through</h4>
+      <p>You cannot successfully fake non-neediness for long. Here is why:</p>
+      <ul class="tips">
+        <li>If you lie about who you are, subtle inconsistencies in your behaviour will slowly reveal the truth</li>
+        <li>If you pretend not to be interested in her, your body language eventually gives you away</li>
+        <li>If you use memorised lines and routines, she senses you're performing rather than connecting</li>
+        <li>If you suddenly act needy after sex (because the performance is over), she immediately re-evaluates everything</li>
+      </ul>
+      <p style="margin-top:0.5rem">The only women you can fool with a sustained performance are women who are drunk, or women who are highly needy themselves. Neither leads anywhere good.</p>
+      <div class="callout gold">The only real solution: become the person you're trying to perform as. Then there's nothing to fake.</div>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>Holding your limits — the attractive power of honesty about what you won't tolerate</h4>
+    <p>Unconditional honesty isn't just about appreciation and compliments. It also includes the honesty of telling a woman when she has crossed a line — calmly, firmly, without anger or lecturing.</p>
+    <div class="grid2">
+      <div>
+        <p><strong>What holding limits looks like:</strong></p>
+        <ul class="tips">
+          <li>"I don't like that. Please don't do that again." — said calmly, without drama</li>
+          <li>If she's playing games: "Let me know when you'd like to get together. If you're not interested, that's completely fine too."</li>
+          <li>Standing up for a friend she insulted without aggression</li>
+          <li>Excusing yourself and leaving a date early if she behaves disrespectfully</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Why it creates attraction:</strong></p>
+        <p>Holding limits sub-communicates: "I value myself more than I value your approval." This is the definition of non-neediness. Paradoxically, women who push your limits often become MORE attracted when you hold them firmly. They were testing whether you had any.</p>
+        <p>Most men's problems with women at their core involve a failure to maintain limits — they allow themselves to be manipulated, walked over, or disrespected because they're too afraid of her disapproval.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>Finding your truth — the inner work</h4>
+    <p>To express yourself honestly to others, you first need to know yourself. Most men have deep-seated truths they've never examined — truths about WHY they pursue women, what drives their neediness, what they're actually afraid of.</p>
+    <div class="grid2">
+      <div>
+        <p><strong>Questions to sit with honestly:</strong></p>
+        <ul class="tips">
+          <li>Why do I really want to date/sleep with women? Is it for genuine connection, or for validation?</li>
+          <li>What experiences left me feeling inadequate around women?</li>
+          <li>Do I have unresolved anger or resentment toward women? Where does it come from?</li>
+          <li>What do I actually value in a woman — beyond looks?</li>
+          <li>Am I pursuing women from abundance, or from desperation?</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Friction and Projection — why attraction alone isn't enough:</strong></p>
+        <p><strong>Friction</strong> = external circumstances preventing escalation despite mutual attraction. Existing relationships, value incompatibilities, logistics (she lives 3,000 miles away), timing. Accept it and move on.</p>
+        <p><strong>Projection</strong> = when a woman attacks or pushes away a man she's attracted to because her past experiences make her afraid of that attraction. She will accuse you of things that have little connection to reality. Walk away — the only men who put up with projection are highly needy men.</p>
+      </div>
+    </div>
+    <div class="action-box">Write honest answers to the questions above. This is not optional — your neediness is rooted in these unexamined truths. Therapy is also a legitimate tool if you sense deeper emotional knots.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ PART II -->
+<div class="part-banner">
+  <span class="part-label">Part II</span>
+  <h2>Strategy</h2>
+  <span class="part-desc">A practical, reality-based strategy for improving your dating life based on polarisation, rejection, and the three fundamentals</span>
+</div>
+
+<!-- CH 4 -->
+<div class="ch-header"><span class="ch-num">Chapter 4</span><h3>Polarisation — Force a Decision</h3></div>
+<div class="ch-body">
+  <div class="callout">"To be liked by all and hated by none means you're loved by nobody. Sexuality and attraction are, by their nature, confrontational and controversial."</div>
+
+  <div class="full-card">
+    <h4>The three categories of women</h4>
+    <div class="grid3">
+      <div class="card red">
+        <div class="badge red">Unreceptive</div>
+        <p>Not interested or available in a romantic/sexual relationship with you right now.</p>
+        <p><strong>Why:</strong> You're more needy than she is / she has a happy relationship / too much friction / not looking for anyone right now.</p>
+        <p><strong>How to tell:</strong> She consistently does not reciprocate. Makes excuses. Doesn't respond. Has a boyfriend and makes clear it's off-limits.</p>
+        <p><strong>Strategy:</strong> Identify quickly and move on immediately. Stop wasting time trying to convince her. She is not the last woman on earth.</p>
+      </div>
+      <div class="card gold">
+        <div class="badge gold">Neutral</div>
+        <p>Undecided — hasn't formed a strong opinion about you yet. Most women you meet start here. She's pleasant but not initiating.</p>
+        <p><strong>Critical:</strong> Women do NOT stay neutral. They will polarise one way or the other. If you never make a move or express interest, they drift to Unreceptive (this is the Friend Zone mechanism).</p>
+        <p><strong>Strategy:</strong> Express yourself honestly. Flirt. Make a move. Force her to decide. Do NOT hover in neutral territory hoping she'll "come around" by herself — she won't.</p>
+      </div>
+      <div class="card green">
+        <div class="badge green">Receptive</div>
+        <p>She is sexually/romantically attracted to you. Either initiates or enthusiastically reciprocates your advances.</p>
+        <p><strong>Signs:</strong> Sustained eye contact, approaches you, touches you first, ignores friends to stay talking to you, introduces you to her friends, asks lots of questions about you.</p>
+        <p><strong>Strategy:</strong> Escalate. Make a move. Move things forward. Don't continue treating her like she's still Neutral — that will undo the attraction.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>The Friend Zone — why it happens and why it's almost impossible to escape</h4>
+    <div class="steps">
+      <div class="step-row"><div class="step-num">1</div><div class="step-text"><span class="step-title">You meet a Neutral woman</span>She's open to the possibility of something romantic. The jury is out.</div></div>
+      <div class="step-row"><div class="step-num">2</div><div class="step-text"><span class="step-title">You "play it safe"</span>You're friendly, helpful, and pleasant — but never flirtatious or direct about your interest.</div></div>
+      <div class="step-row"><div class="step-num">3</div><div class="step-text"><span class="step-title">She concludes you're not interested</span>Or that you're too afraid to make a move. Either way, she categorises you as Friend.</div></div>
+      <div class="step-row"><div class="step-num">4</div><div class="step-text"><span class="step-title">The Friend Zone is now permanent</span>From that moment, she cannot see you as a romantic possibility. For women, friend and sexual partner are almost always mutually exclusive categories.</div></div>
+    </div>
+    <div style="margin-top:0.75rem">
+      <p><strong>Why you can't get out:</strong> Waiting 4 years to confess feelings sub-communicates: "I was so invested in you that I spent 4 years working up the nerve." That is the most unattractive thing you could say. She always knew. Which makes it worse.</p>
+      <p style="margin-top:0.4rem"><strong>The only prevention:</strong> Express sexual interest early and clearly. Not desperately — confidently. A brief, honest statement of interest in the early stages eliminates the Friend Zone entirely.</p>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>Polarising to attract — what it looks like in practice</h4>
+    <p>Polarisation is simply the natural result of expressing yourself honestly. Every honest self-expression polarises women — it forces them to decide whether they like who you are.</p>
+    <div class="grid2">
+      <div>
+        <p><strong>Examples of polarising behaviour:</strong></p>
+        <ul class="tips">
+          <li>Telling her you find her beautiful and want to take her out</li>
+          <li>Wearing something distinctive that reflects your personality</li>
+          <li>Disagreeing with her when you genuinely disagree</li>
+          <li>Telling her you won't accept her being late again</li>
+          <li>Teasing her playfully about something she said</li>
+          <li>Asking for her number directly without making up a pretext</li>
+          <li>Expressing a controversial opinion you genuinely hold</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>What polarisation does:</strong></p>
+        <ul class="tips">
+          <li class="c">Immediately sorts Receptive women from Unreceptive</li>
+          <li class="c">Moves Neutral women off the fence quickly</li>
+          <li class="c">Demonstrates non-neediness — you're willing to risk rejection</li>
+          <li class="c">Creates attraction even when she wasn't sure how she felt</li>
+          <li class="c">Saves enormous time by eliminating dead-end interactions fast</li>
+        </ul>
+        <div class="callout gold">Manson's rule: "FUCK YES or No." If she isn't enthusiastically saying yes, the answer is effectively no. Don't settle for a lukewarm "maybe."</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CH 5 -->
+<div class="ch-header"><span class="ch-num">Chapter 5</span><h3>Rejection and Success — Using Failure as a Tool</h3></div>
+<div class="ch-body">
+  <div class="grid2">
+    <div class="full-card">
+      <h4>95% of rejection is not about you</h4>
+      <p>When you approach a woman who doesn't respond warmly, the reason is almost never "you're not good enough." Consider what might actually be happening in her life:</p>
+      <ul class="tips">
+        <li>She just got back together with her ex and is trying to make it work</li>
+        <li>Her grandmother died this week and she can't focus on anything</li>
+        <li>The last man who approached her was aggressive and she's on guard</li>
+        <li>She's flying home tomorrow and has no interest in starting something</li>
+        <li>She just went through a devastating breakup and isn't ready</li>
+        <li>A completely random bad-mood day with nothing to do with you</li>
+        <li>She has the same name as your ex and that's triggering her somehow</li>
+      </ul>
+      <p style="margin-top:0.5rem">These circumstances have nothing to do with you. At any given moment, a large chunk of the women you meet are experiencing one of them. Rejection is overwhelmingly situational — not a verdict on your value.</p>
+    </div>
+    <div class="full-card">
+      <h4>Reframing rejection completely</h4>
+      <div class="wr-box">Old frame: "She rejected me → I am not good enough."</div>
+      <div class="ex-box">New frame: "She didn't respond → we are incompatible right now, permanently, or temporarily — and I don't know which."</div>
+      <div class="wr-box">Old frame: "I hope she doesn't reject me."</div>
+      <div class="ex-box">New frame: "I wonder what she's like. I'll find out."</div>
+      <div class="wr-box">Old frame: "How do I avoid rejection?"</div>
+      <div class="ex-box">New frame: "How do I find out if we're compatible as quickly as possible?"</div>
+      <p style="margin-top:0.5rem">When you successfully reframe rejection this way, you go from someone who dreads meeting people to someone who is genuinely curious about them — and that curiosity is itself deeply attractive.</p>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>Redefining success with women</h4>
+    <div class="do-dont">
+      <div class="dont-side">
+        <h5>Wrong definitions of success</h5>
+        <ul class="tips">
+          <li class="x">Getting as many phone numbers as possible</li>
+          <li class="x">Never being rejected</li>
+          <li class="x">Having sex with the most women in the shortest time</li>
+          <li class="x">Dating women hotter than your friends' partners</li>
+          <li class="x">Having a girlfriend (any girlfriend)</li>
+          <li class="x">Being "the man" in your social circle</li>
+        </ul>
+        <p style="margin-top:0.5rem;font-size:0.8rem">All of these are based on external validation and neediness. They will make you chase the wrong things and settle for the wrong people.</p>
+      </div>
+      <div class="do-side">
+        <h5>The right definition</h5>
+        <p><strong>Success = maximising happiness with the woman or women you choose to be with.</strong></p>
+        <ul class="tips" style="margin-top:0.5rem">
+          <li class="c">Rejection becomes useful — it filters out incompatible women faster</li>
+          <li class="c">A great date with a woman who wants to take it slow can be more valuable than a quick hook-up with someone wrong for you</li>
+          <li class="c">Quality of connection matters more than quantity</li>
+          <li class="c">You stop seeing interactions as wins or losses and start seeing them as discoveries about compatibility</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CH 6 -->
+<div class="ch-header"><span class="ch-num">Chapter 6</span><h3>The Three Fundamentals — The Complete Framework</h3></div>
+<div class="ch-body">
+  <div class="grid3">
+    <div class="card blue">
+      <div class="badge blue">Fundamental 1</div>
+      <h4>Honest Living</h4>
+      <p>Creating an attractive and enriching lifestyle that genuinely reflects who you are and what you value.</p>
+      <p><strong>Affects:</strong> The quality of women you attract and the percentage who are Receptive to you.</p>
+      <p>If you're living 40+ hours a week by others' expectations — wrong job, wrong hobbies, wrong social circle — you have baseline neediness that contaminates every interaction.</p>
+      <p><em>Covered in Chapters 7–8</em></p>
+    </div>
+    <div class="card gold">
+      <div class="badge gold">Fundamental 2</div>
+      <h4>Honest Action</h4>
+      <p>Overcoming fear and anxiety to act on your desires without hesitation or shame.</p>
+      <p><strong>Affects:</strong> The quantity of women you meet and approach.</p>
+      <p>If you see a beautiful woman you want to meet but don't act on it — you are being dishonest with yourself. Anxiety = over-investment in her opinion = neediness in action.</p>
+      <p><em>Covered in Chapters 9–10</em></p>
+    </div>
+    <div class="card">
+      <div class="badge gray">Fundamental 3</div>
+      <h4>Honest Communication</h4>
+      <p>Learning to express yourself clearly, openly, and effectively in all interactions.</p>
+      <p><strong>Affects:</strong> The efficiency with which you convert attraction into real connection and intimacy.</p>
+      <p>Great lifestyle + zero approach anxiety means nothing if you can't express yourself. You'll keep losing women to "lost in translation" situations.</p>
+      <p><em>Covered in Chapters 11–14</em></p>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>Two types of men — where do you fall?</h4>
+    <div class="do-dont">
+      <div class="do-side">
+        <h5>Type 1: Socially Anxious</h5>
+        <p>Great at communication and empathy — too aware of what others think. Once he gets past the initial anxiety, he does well. His problem is the first step.</p>
+        <ul class="tips" style="margin-top:0.5rem">
+          <li class="c">Can hold a great conversation when he gets there</li>
+          <li class="c">Very aware of social norms</li>
+          <li class="c">When a woman is interested, he does well</li>
+          <li class="x">Paralysed by fear of approaching</li>
+          <li class="x">Terrified to escalate or ask for numbers</li>
+          <li class="x">Waits for "perfect" moments that never come</li>
+        </ul>
+        <p style="margin-top:0.5rem;font-size:0.8rem"><strong>Focus:</strong> Honest Action. Build courage through incremental exposure.</p>
+      </div>
+      <div class="dont-side">
+        <h5>Type 2: Socially Disconnected</h5>
+        <p>Fearless in approaching — almost no anxiety. The problem is doing the right things at the completely wrong times without realising it.</p>
+        <ul class="tips" style="margin-top:0.5rem">
+          <li class="c">Fearlessly approaches women — almost zero anxiety</li>
+          <li class="c">Bold and willing to take social risks</li>
+          <li class="x">Often does bold things without realising they're bold or inappropriate</li>
+          <li class="x">Misreads social cues constantly</li>
+          <li class="x">Women find him weird or creepy despite genuine interest</li>
+          <li class="x">Keeps failing at the same points without understanding why</li>
+        </ul>
+        <p style="margin-top:0.5rem;font-size:0.8rem"><strong>Focus:</strong> Honest Communication. Learn social calibration and how to read others.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ PART III -->
+<div class="part-banner">
+  <span class="part-label">Part III</span>
+  <h2>Honest Living</h2>
+  <span class="part-desc">Build a life that attracts quality women without needing to try — demographics, lifestyle, presentation</span>
+</div>
+
+<!-- CH 7 -->
+<div class="ch-header"><span class="ch-num">Chapter 7</span><h3>Demographics — Finding Your People</h3></div>
+<div class="ch-body">
+  <div class="callout">"Like attracts like. You attract what you are." — The entire theory of demographics in one sentence.</div>
+
+  <div class="grid2">
+    <div class="full-card">
+      <h4>What demographics means and why it matters</h4>
+      <p>Demographics is the most overlooked variable in dating advice. The context in which you meet women — who you are, where you go, what interests you share — determines the quality and compatibility of encounters far more than any line or technique.</p>
+      <p>Women you are most compatible with naturally gravitate toward the same activities, events, and environments you gravitate toward — because you share values.</p>
+      <p>When demographics don't match, no amount of charm or technique overcomes the friction. A quiet, intellectual 40-year-old engineer trying to pick up 20-year-old club girls will fail — not because of his technique, but because they simply don't share enough common ground.</p>
+    </div>
+    <div class="full-card">
+      <h4>Best places to meet women who share your values</h4>
+      <ul class="tips">
+        <li><strong>Dance classes</strong> (salsa, swing, ballroom) — always women, naturally interactive</li>
+        <li><strong>Yoga classes</strong> — consistently great demographics</li>
+        <li><strong>Art gallery openings</strong> — creative, culturally curious women</li>
+        <li><strong>Volunteering / charity events</strong> — women with social conscience</li>
+        <li><strong>Language classes</strong> — internationally minded women</li>
+        <li><strong>Travel groups / couch surfing events</strong> — adventurous women</li>
+        <li><strong>Co-ed sports leagues</strong> — active, fun, socially open</li>
+        <li><strong>Wine or beer tastings</strong> — warm social environments</li>
+        <li><strong>Business networking events</strong> — professionally ambitious women</li>
+        <li><strong>Concerts in your genre</strong> — automatic shared taste</li>
+        <li><strong>Cooking classes</strong> — relaxed, social, hands-on</li>
+        <li><strong>Dog parks</strong> — casual, naturally conversation-starting</li>
+      </ul>
+      <div class="action-box">Don't just join activities — lead them. Start organising, promoting, or managing the events you care about. Social proof within your demographic amplifies your attractiveness dramatically.</div>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>Beliefs and the assortment effect</h4>
+    <p>Your beliefs about women are reflected in your behaviour, and your behaviour determines which women are attracted to you. This is the <strong>assortment effect</strong> — you attract people who match your self-perception and worldview.</p>
+    <div class="grid2">
+      <div>
+        <p><strong>How beliefs shape outcomes:</strong></p>
+        <ul class="tips">
+          <li>If you believe all women are untrustworthy → you attract untrustworthy women, because your suspicious behaviour drives away the trustworthy ones</li>
+          <li>If you believe women don't enjoy sex → women who are sexually open feel uncomfortable around you; you attract sexually repressed women</li>
+          <li>If you believe you're not good enough → you radiate this and attract women who are also low self-esteem</li>
+          <li>If you believe you're a man who has a lot to offer → you approach from curiosity rather than desperation, and attract women who appreciate that</li>
+        </ul>
+      </div>
+      <div>
+        <p><em>"The only thing all of the women you date have in common is you."</em></p>
+        <p>If all your relationships follow the same dysfunctional pattern — dishonesty, instability, emotional unavailability — that pattern is coming from inside you, not from the women.</p>
+        <div class="action-box">Write down your core beliefs about women. Ask: are they accurate? Are they attracting the results I want? Consciously experiment with changing the beliefs that are producing bad outcomes.</div>
+        <p style="margin-top:0.5rem">How to change a belief: simply accept that you may not know what you're talking about, then go out and test different hypotheses. Your experience will update your beliefs over time.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>Age, money, and looks — the honest truth</h4>
+    <div class="grid2">
+      <div>
+        <p><strong>Do they matter? Yes — but far less than men believe.</strong></p>
+        <ul class="tips">
+          <li><strong>Looks:</strong> Men's physical attractiveness peaks around 31 and declines far slower than women's. More importantly, women judge male attractiveness more by style, grooming, and presentation than by physical dimensions. A wardrobe change and proper grooming can increase perceived attractiveness dramatically overnight.</li>
+          <li><strong>Money:</strong> More important as you get older, and more important to women who lack financial independence. Women with their own careers and income care about it far less.</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>The real formula:</strong></p>
+        <p>The more money/looks/status you have, the less attractive behaviour you need. The less you have, the more attractive behaviour you need. But <em>attractive behaviour can compensate for almost everything.</em></p>
+        <div class="ex-box">"I have coached hundreds of men who were far more professionally successful and better looking than me, yet I still dated more women and more beautiful women than them. Being good-looking and rich is worth nothing if you don't do something with it." — Mark Manson</div>
+        <p>Looks and money are excuses used by needy men to avoid taking responsibility for their results. A rich, handsome man who behaves like a timid, approval-seeking chump will still be rejected.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CH 8 -->
+<div class="ch-header"><span class="ch-num">Chapter 8</span><h3>Lifestyle and Presentation — Looking the Part</h3></div>
+<div class="ch-body">
+  <div class="callout">"Fashion and fitness will do more to attract women in a shorter amount of time than anything else you can do. There is literally no downside to either one."</div>
+
+  <div class="full-card">
+    <h4>Fashion — the three rules</h4>
+    <div class="grid3">
+      <div class="card blue">
+        <h4>Rule 1: Fit</h4>
+        <p>The vast majority of men wear clothes too large. Fit is king — even mediocre clothing looks great when it fits well. Even expensive clothing looks terrible when it doesn't fit.</p>
+        <ul class="tips">
+          <li>Shirt shoulder seam = end of your shoulder, not past it</li>
+          <li>Dress shirt cuffs = at the wrist bone, not beyond</li>
+          <li>Jeans = one "break" resting on the shoe, not bunched up</li>
+          <li>Pants never sag even when leaning or bending</li>
+        </ul>
+        <p style="margin-top:0.5rem"><strong>First step:</strong> Go through your closet right now. Pull out anything that doesn't fit well. That's the beginning.</p>
+      </div>
+      <div class="card gold">
+        <h4>Rule 2: Match</h4>
+        <ul class="tips">
+          <li>Belt matches shoes in colour and formality</li>
+          <li>Dress pants → socks match pants colour</li>
+          <li>Jeans → socks match shoes colour</li>
+          <li>All accessories same metal (all gold or all silver)</li>
+        </ul>
+        <p style="margin-top:0.5rem"><strong>Easy system:</strong> Build a "black set" (black shoes, belt, jacket) and a "brown set" (brown shoes, belt, jacket). Then mix and match shirts and jeans with each set. It's almost impossible to go wrong.</p>
+      </div>
+      <div class="card">
+        <h4>Rule 3: Personality</h4>
+        <p>Don't buy random trendy things that have nothing to do with your identity. Find 2–3 people who represent your personality and look at how they dress.</p>
+        <p><strong>Common attractive archetypes:</strong></p>
+        <ul class="tips">
+          <li>The professional — business-casual, put-together</li>
+          <li>The creative — artistic, slightly unconventional</li>
+          <li>The outdoorsman — rugged, functional, active</li>
+          <li>The musician — rock-influenced, edgy, intentional</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="full-card">
+      <h4>Fitness — non-negotiables</h4>
+      <div class="steps">
+        <div class="step-row"><div class="step-num">1</div><div class="step-text"><span class="step-title">Exercise, no matter what — non-negotiable</span>Type matters less than consistency. Soccer, yoga, weights, cycling — whatever you'll actually maintain. Beyond appearance, exercise boosts testosterone, relieves anxiety, improves confidence and mood, and makes you better in bed.</div></div>
+        <div class="step-row"><div class="step-num">2</div><div class="step-text"><span class="step-title">Clean up your diet — start with the 80/20 rule</span>Cut sodas, fast food, desserts, and candy. Just these four things produces 80% of nutritional results for 20% of effort. Don't get paralysed by complex nutritional debates — start with the fundamentals and build from there.</div></div>
+      </div>
+    </div>
+    <div class="full-card">
+      <h4>Body language — the 5 key adjustments</h4>
+      <div class="steps">
+        <div class="step-row"><div class="step-num">1</div><div class="step-text"><span class="step-title">Shoulders back</span>The ridge from your neck to your shoulder should run straight — not slanting forward. Pull shoulders back until it does.</div></div>
+        <div class="step-row"><div class="step-num">2</div><div class="step-text"><span class="step-title">Chin up, eyes forward</span>Looking straight ahead at the horizon. This naturally straightens your back and brings your stomach in.</div></div>
+        <div class="step-row"><div class="step-num">3</div><div class="step-text"><span class="step-title">Strong, steady eye contact</span>Hold it for the majority of interactions. Never dart your eyes around — this signals anxiety and low status.</div></div>
+        <div class="step-row"><div class="step-num">4</div><div class="step-text"><span class="step-title">Speak slower, louder, from the chest</span>Breathe from your diaphragm. Speak more slowly than you think you need to. Research shows louder voices command more respect and attention.</div></div>
+        <div class="step-row"><div class="step-num">5</div><div class="step-text"><span class="step-title">Remove all filler words</span>Eliminate "um," "uh," "like," "you know" from your speech. These signal uncertainty and low confidence regardless of what you're saying.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>Developing character — standing out from the crowd</h4>
+    <p>Out of 10 random single men a woman meets, 9 are into sports, comedy movies, rock and hip-hop, and generic guy activities. What makes you stand out? What can you offer that most men can't?</p>
+    <div class="grid2">
+      <div>
+        <p><strong>Rules for developing genuine character:</strong></p>
+        <ul class="tips">
+          <li><strong>Assume everything has value</strong> — don't dismiss genres or art forms because of prejudice. Find what others see in them first, then decide if you like them.</li>
+          <li><strong>Start with the best</strong> — when exploring new territory, begin with what critics and audiences consider great. Watch the IMDB top 20. Read classic literature.</li>
+          <li><strong>Develop strong opinions</strong> — instead of "I liked that movie," be able to say exactly WHY. What specific element moved you? Taste is built through analysis.</li>
+          <li><strong>Do unusual things</strong> — skydiving, living abroad, a niche hobby you're obsessive about. These are conversation gold and identity builders.</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>The test:</strong></p>
+        <p>If you were lined up with 10 random single men your age, what would make you stand out? Imagine a woman met all 10 of you in a row. What is there about you that would stop her and make her think "this man is unique"?</p>
+        <div class="action-box">Ask yourself: "What have I done that most men haven't? What opinions do I have that most men don't? What have I experienced that shaped me in ways others haven't been shaped?" If the answer is nothing — start building that thing.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ PART IV -->
+<div class="part-banner">
+  <span class="part-label">Part IV</span>
+  <h2>Honest Action</h2>
+  <span class="part-desc">Conquer the fear and anxiety that stop you from acting on your desires — stories, defense mechanisms, and courage</span>
+</div>
+
+<!-- CH 9 -->
+<div class="ch-header"><span class="ch-num">Chapter 9</span><h3>What Are Your Stories? — The Lies That Stop You</h3></div>
+<div class="ch-body">
+  <div class="callout">"The resistance doesn't go away. It just changes shape. Anxiety morphs into apathy, which morphs into arrogance." — Mark Manson</div>
+
+  <div class="full-card">
+    <h4>What are your stories?</h4>
+    <p>Your "stories" are the narratives your subconscious creates to justify inaction. They are the rationalisations, excuses, and interpretations that protect the status quo by making avoidance feel reasonable and smart.</p>
+    <div class="grid2">
+      <div>
+        <p><strong>Common stories men tell themselves:</strong></p>
+        <ul class="tips">
+          <li>"She's probably taken."</li>
+          <li>"She's out of my league."</li>
+          <li>"I'm too busy right now."</li>
+          <li>"I need to learn more first — just a bit more."</li>
+          <li>"I'll do it after I lose some weight."</li>
+          <li>"She looked like she was in a rush."</li>
+          <li>"Women in this city are all shallow."</li>
+          <li>"I'm just not ready yet."</li>
+          <li>"I'll approach the next one." (And the one after that.)</li>
+          <li>"She had headphones in — it would be rude to interrupt."</li>
+        </ul>
+      </div>
+      <div>
+        <p>The external story changes constantly. The internal function is always the same: <strong>protect the status quo. Justify inaction. Avoid vulnerability.</strong></p>
+        <p style="margin-top:0.5rem">Even Manson admits to his own stories: "That I'm too good for these girls" — rationalising why he won't approach. Even after thousands of interactions, the resistance never fully disappears. It just changes form.</p>
+        <div class="action-box">Write down the story you tell yourself most often. Then write one specific action that would disprove that story. Go do that action before the week ends.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>The 3 defense mechanism patterns</h4>
+    <div class="grid3">
+      <div class="card red">
+        <div class="badge red">The Blame Game</div>
+        <p>When confronted with fear, you blame someone or something else for why things didn't work out.</p>
+        <div class="ex-box" style="background:#ffebee;border-left-color:#c62828;color:#791f1f">"She's stuck up." "Women here are shallow." "She only likes rich guys." "This city has the worst women."</div>
+        <p style="margin-top:0.4rem"><strong>The danger:</strong> With enough repetition, these become irrational core beliefs that poison every interaction and attract exactly the women you're complaining about.</p>
+      </div>
+      <div class="card">
+        <div class="badge gray">Apathy / Avoidance</div>
+        <p>Convincing yourself that you don't want something you clearly want. Pretending indifference.</p>
+        <div class="ex-box">"I don't really care about meeting women right now." "I'm not in the mood tonight." "It doesn't matter."</div>
+        <p style="margin-top:0.4rem"><strong>The tell:</strong> If you genuinely didn't care, you wouldn't have bought this book, and you wouldn't be reading this right now. Biology always wins eventually.</p>
+      </div>
+      <div class="card gold">
+        <div class="badge gold">Intellectualising</div>
+        <p>Using learning and understanding as a substitute for doing. Reading every book but taking no action.</p>
+        <div class="ex-box" style="background:#fdf6e3;border-left-color:#c9a84c;color:#5c3410">"I need to understand this better before I try." "Just one more book." "I'll start after I finish this course."</div>
+        <p style="margin-top:0.4rem"><strong>The irony:</strong> The more you study without acting, the more pressure you put on each interaction, which increases anxiety. Action, not study, is what reduces it.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:0.75rem">You are not a victim. If every woman in your city seems cold and shallow — the statistical odds that literally ALL of them are is vanishingly small. More likely, something in your behaviour is attracting or repelling a specific type. Take full responsibility.</div>
+  </div>
+
+  <div class="full-card">
+    <h4>How to identify and break your pattern</h4>
+    <div class="steps">
+      <div class="step-row"><div class="step-num">1</div><div class="step-text"><span class="step-title">Identify your primary anxiety point</span>Where does your resistance spike most? Approaching? Asking for numbers? Going for the kiss? Having sex? Know exactly where you stall.</div></div>
+      <div class="step-row"><div class="step-num">2</div><div class="step-text"><span class="step-title">Identify your dominant defense mechanism</span>When that anxiety appears, do you blame, avoid/pretend indifference, or intellectualise? Most men have one dominant pattern they fall back on automatically.</div></div>
+      <div class="step-row"><div class="step-num">3</div><div class="step-text"><span class="step-title">Write a specific goal</span>"I will call every phone number I get within 24 hours, no matter how little I feel like it." Make it concrete and time-bound.</div></div>
+      <div class="step-row"><div class="step-num">4</div><div class="step-text"><span class="step-title">Tell someone and ask them to hold you accountable</span>Sharing your commitment with a friend makes it 10x more likely to happen. Even just verbalising your fear to someone who understands relieves significant pressure.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CH 10 -->
+<div class="ch-header"><span class="ch-num">Chapter 10</span><h3>How to Overcome Anxiety — The Step-by-Step Method</h3></div>
+<div class="ch-body">
+  <div class="callout">"She wants you to be the man. Every time a new man walks up to her, she's secretly saying: Please, please, please be the man I can't say no to."</div>
+
+  <div class="full-card">
+    <h4>She is rooting for you</h4>
+    <p>Men imagine women as judges on pedestals, waiting to shoot them down with cruel rejections. The reality is the opposite. Women go to bars, join dating sites, and accept blind dates because they want to meet a great man. They desperately don't want to reject you — rejection is uncomfortable and tedious for them too.</p>
+    <p>Every time you approach, she is secretly hoping you are exactly the man she's been looking for. She will give you every chance if you show her who you really are. This reframe alone can transform how approach anxiety feels.</p>
+    <div class="grid2">
+      <div class="card blue">
+        <h4>What she wants you to do</h4>
+        <ul class="tips">
+          <li class="c">Walk up confidently and introduce yourself</li>
+          <li class="c">Express genuine interest in her as a person</li>
+          <li class="c">Lead the interaction with confidence</li>
+          <li class="c">Make her laugh and feel good being around you</li>
+          <li class="c">Make a move when the time is right</li>
+        </ul>
+      </div>
+      <div class="card red">
+        <h4>What she dreads having to deal with</h4>
+        <ul class="tips">
+          <li class="x">Nervous man who buys drinks hoping she'll stay</li>
+          <li class="x">Someone who makes small talk about the weather</li>
+          <li class="x">Man visibly terrified of rejection who doesn't make a move</li>
+          <li class="x">Boring interview-style questions with no spark</li>
+          <li class="x">Having to reject yet another man who misread the situation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>The method: incremental, consistent exposure</h4>
+    <p>The classic approach (boot camps, being pushed to approach 25 women in a night) creates a temporary spike in courage but no lasting habit. The correct method: slowly and systematically make the feared action easier through repeated small successes, building up step by step.</p>
+    <div class="grid2">
+      <div>
+        <p><strong>Anxiety staircase — approaching:</strong></p>
+        <div class="steps">
+          <div class="step-row"><div class="step-num">1</div><div class="step-text">Ask a woman for the time. Nothing more required.</div></div>
+          <div class="step-row"><div class="step-num">2</div><div class="step-text">Ask for time + "How's your day going?"</div></div>
+          <div class="step-row"><div class="step-num">3</div><div class="step-text">Comment on something in the environment</div></div>
+          <div class="step-row"><div class="step-num">4</div><div class="step-text">Introduce yourself: "Hey, I'm [name]"</div></div>
+          <div class="step-row"><div class="step-num">5</div><div class="step-text">"I thought you were cute and wanted to meet you."</div></div>
+          <div class="step-row"><div class="step-num">6</div><div class="step-text">Express interest and ask for her number directly</div></div>
+        </div>
+      </div>
+      <div>
+        <p><strong>Anxiety staircase — escalation:</strong></p>
+        <div class="steps">
+          <div class="step-row"><div class="step-num">1</div><div class="step-text">Hold her hand when walking through a crowd</div></div>
+          <div class="step-row"><div class="step-num">2</div><div class="step-text">Put your arm around her during a high-energy moment</div></div>
+          <div class="step-row"><div class="step-num">3</div><div class="step-text">Kiss her on the cheek</div></div>
+          <div class="step-row"><div class="step-num">4</div><div class="step-text">Go for the kiss on the lips</div></div>
+        </div>
+        <p style="margin-top:0.6rem"><strong>Key rule:</strong> Focus on only ONE thing at a time. Don't try to fix approaching AND escalation AND texting AND conversation simultaneously. Pick your weakest link and drill it until it's solid, then move on.</p>
+        <p style="margin-top:0.4rem"><strong>Watch for avoidance within the staircase:</strong> Some men use "working on approaches" as an excuse to avoid escalating. If approaching is already easy for you but you always stop before making a move — the anxiety is in the escalation, not the approach.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>Courage, boldness, and always erring on the side of action</h4>
+    <p>Courage is a habit, built like a muscle through consistent, challenging use. Every time you feel fear and act anyway, you build courage. Avoid the action, and the fear grows. Act despite the fear, and it gradually shrinks.</p>
+    <div class="grid2">
+      <div>
+        <p><strong>Important nuance for bold moves:</strong> When doing something unusual — approaching in a strange context, trying to kiss her in an unexpected place — you must acknowledge that it's unusual. A man who is boldly self-aware is attractive. A man who is bold but oblivious to social norms comes across as creepy.</p>
+        <div class="ex-box">"I know this is kind of random, but I thought you were cute and wanted to meet you." — acknowledges the boldness, which makes it charming rather than aggressive.</div>
+      </div>
+      <div>
+        <p><strong>The golden rule:</strong></p>
+        <div class="callout gold" style="text-align:left;border-radius:0 8px 8px 0;border:none;border-left:4px solid #c9a84c">Always err on the side of boldness. When in doubt about whether to make a move — make the move. Waiting for the perfect moment means waiting forever. Attraction decays. Bold action replenishes it.</div>
+        <p style="margin-top:0.5rem">The bolder the action, the more it polarises — but also the more attraction it creates when it lands. Bold behaviour backed by genuine vulnerability and self-awareness is the most powerful combination in attraction.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ PART V -->
+<div class="part-banner">
+  <span class="part-label">Part V</span>
+  <h2>Honest Communication</h2>
+  <span class="part-desc">Express yourself clearly, flirt effectively, navigate the dating process, and lead the physical escalation</span>
+</div>
+
+<!-- CH 11 -->
+<div class="ch-header"><span class="ch-num">Chapter 11</span><h3>Your Intentions — Sub-communication and Emotional Connection</h3></div>
+<div class="ch-body">
+  <div class="callout">"Women don't hear your words. They hear your intentions. Everything is sub-communication."</div>
+
+  <div class="grid2">
+    <div class="full-card">
+      <h4>How women actually communicate</h4>
+      <p>Men communicate primarily through facts, data, and literal statements. Women communicate primarily through feelings and intentions underneath the words.</p>
+      <p>This means: the same words can be attractive or repellent depending entirely on WHY they are being said. Women have finely tuned sub-communication detectors. They almost always sense the intention beneath what's being said.</p>
+      <div class="wr-box">Complimenting her from neediness (to get something from her) → she feels objectified and uncomfortable</div>
+      <div class="ex-box">Complimenting her from genuine appreciation (just because you mean it) → she lights up and feels truly seen</div>
+      <div class="wr-box">Sharing a story about yourself to brag and impress → she senses it and is unimpressed</div>
+      <div class="ex-box">Sharing a story to express yourself and share your life → she's engaged and feels connection</div>
+      <p><strong>The litmus test:</strong> Before doing or saying anything, ask yourself internally: "Why am I doing this?" If the honest answer is "to get her approval" — recalibrate.</p>
+    </div>
+    <div class="full-card">
+      <h4>What is creepiness — the real definition</h4>
+      <p><strong>Creepiness = expressing your sexuality in a way that makes a woman feel sexually insecure.</strong></p>
+      <p>It is NOT about what you say. It's about the gap between what you're saying and what you actually want — your intentions being hidden or out of sync with your words.</p>
+      <p><strong>When creepiness happens:</strong></p>
+      <ul class="tips">
+        <li class="x">Your words and intentions are wildly out of sync (talking about the weather while staring at her chest)</li>
+        <li class="x">You move too fast for the level of trust established</li>
+        <li class="x">You ignore her clear signals of discomfort and push anyway</li>
+        <li class="x">You are visibly desperate and approval-seeking in every interaction</li>
+      </ul>
+      <p style="margin-top:0.5rem"><strong>The key insight:</strong> The more open and transparent you are about your intentions, the LESS creepy you become. Creepiness comes from hidden agendas. Accept that you'll occasionally come across as creepy to someone regardless — that's unavoidable when you express yourself freely.</p>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>Building deep emotional connection</h4>
+    <p>Real connection comes from mutual emotional vulnerability — not from shared facts or interests. Two people can have everything in common (same town, same job, same street) and have zero connection. Two people from completely different backgrounds can connect deeply by sharing emotional truths.</p>
+    <div class="grid2">
+      <div>
+        <p><strong>The pattern for building emotional connection:</strong></p>
+        <div class="steps">
+          <div class="step-row"><div class="step-num">1</div><div class="step-text">Become aware of your own emotions, motivations, and life story first</div></div>
+          <div class="step-row"><div class="step-num">2</div><div class="step-text">Share those emotions and motivations openly — you lead the vulnerability</div></div>
+          <div class="step-row"><div class="step-num">3</div><div class="step-text">Your sharing creates psychological safety for her to share in return</div></div>
+          <div class="step-row"><div class="step-num">4</div><div class="step-text">The deeper and more personal the sharing, the deeper the connection</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="wr-box">Shallow: "I love Empire of the Sun too." (just a fact)</div>
+        <div class="ex-box" style="margin-top:0.5rem">Deep: "Empire of the Sun always reminds me of my brother. He used to drive me to school every morning blasting it. Looking back, it was him taking care of me in a way my dad never did. So whenever I hear it, I feel this bittersweet thing — appreciation for moments I didn't recognise at the time." (emotion, vulnerability, real life)</div>
+        <p style="margin-top:0.5rem"><strong>The rule:</strong> Relate to feelings, not facts. The facts of your life differ from hers. The feelings — ambition, loneliness, shame, love, loss, achievement — are universal. Find those and connect through them.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CH 12 -->
+<div class="ch-header"><span class="ch-num">Chapter 12</span><h3>How to Flirt Better — Conversation, Storytelling, and Humour</h3></div>
+<div class="ch-body">
+  <div class="full-card">
+    <h4>Sexual tension and flirting</h4>
+    <p><strong>Flirting = expressing your sexuality in a way that makes a woman feel secure expressing hers back.</strong> It is the opposite of creepiness.</p>
+    <p>Sexual tension builds when uncertainty about potential sexual possibilities is present in an interaction. Two ways to create this tension:</p>
+    <div class="grid2">
+      <div>
+        <div class="card blue">
+          <h4>Teasing — creates uncertainty through mixed signals</h4>
+          <p>Teasing sends two messages simultaneously: "Yes, I notice you" (pull) + "No, I'm not sure about you" (push). This uncertainty creates tension.</p>
+          <div class="ex-box">Her: [wearing bright red shoes]<br>You: "Are you going to click your heels to go home later?"</div>
+          <div class="ex-box">Her: [sitting alone looking bored]<br>You: "So who put you in timeout?"</div>
+          <div class="ex-box">Her: [laughing a lot at everything you say]<br>You: "You're easier to impress than I expected. I'm not sure how I feel about that."</div>
+          <p style="margin-top:0.4rem"><em>Note: About 1/3 of women don't respond well to teasing. Read her reaction. If she seems genuinely uncomfortable — switch to genuine compliments.</em></p>
+        </div>
+      </div>
+      <div>
+        <div class="card gold">
+          <h4>Bold direct interest — creates tension through exposed desire</h4>
+          <p>Saying directly "I think you're beautiful, I'd like to take you out" is actually one of the most sexually tense things you can say — when said from non-neediness.</p>
+          <p><strong>Why it works:</strong></p>
+          <ul class="tips">
+            <li class="c">Polarising — she immediately knows how she feels</li>
+            <li class="c">Arousing — being directly desired is what women fantasise about</li>
+            <li class="c">Bold — sub-communicates non-neediness (comfortable with rejection)</li>
+            <li class="c">Creates enormous uncertainty about what happens next</li>
+          </ul>
+          <div class="ex-box">After building some rapport: "I think you're beautiful. I'd like to take you out for coffee this week." [Then wait. Say nothing else. Let her respond.]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>Conversation skills — the practical techniques</h4>
+    <div class="grid2">
+      <div>
+        <p><strong>1. Effective language</strong></p>
+        <p>Say what you mean with the fewest words possible. Remove all filler words: "um," "uh," "like," "you know," "I guess."</p>
+        <div class="wr-box">"So, um, I guess what I'm saying is like, that I never really felt at home when I lived, uh, out there, you know, in California. The people, uh, just felt kind of like, superficial to me."</div>
+        <div class="ex-box">"I never felt at home in California. The people felt superficial to me. I didn't like it." (same meaning, dramatically more impact)</div>
+
+        <p style="margin-top:0.75rem"><strong>2. Cold reading — statements over questions</strong></p>
+        <p>Instead of asking a question, make an educated guess and state it as a prediction. This is more engaging than any question.</p>
+        <div class="wr-box">"Where are you from?" (interview mode)</div>
+        <div class="ex-box">"You look like a California girl." (cold read)</div>
+        <div class="wr-box">"What do you do for work?"</div>
+        <div class="ex-box">"You seem creative. I bet your job is more interesting than it looks."</div>
+        <p style="margin-top:0.4rem">If you're wrong — she corrects you (still a conversation). If you're right — she's amazed at how perceptive you are.</p>
+      </div>
+      <div>
+        <p><strong>3. Endless conversation topics — jump-off points</strong></p>
+        <p>In every sentence someone says, there are 3–5 topics you could naturally branch into. Learn to spot them and conversations never die.</p>
+        <div class="ex-box">Her: "We were at this party last night. It was crazy. The cops ended up busting it and some drunk kid got arrested."<br><br>Jump-off points: ① the party ② the cops ③ the arrested kid ④ the last crazy party you went to ⑤ your experience with getting in trouble</div>
+
+        <p style="margin-top:0.75rem"><strong>4. Story structure — set-up, conflict, resolution</strong></p>
+        <ul class="tips">
+          <li><strong>Set-up:</strong> Establish context and hook them in immediately</li>
+          <li><strong>Content/Conflict:</strong> The tension that keeps them listening and wanting to know what happens</li>
+          <li><strong>Resolution:</strong> The release that gives satisfying closure</li>
+        </ul>
+        <p style="margin-top:0.4rem">If people zone out mid-story — your conflict isn't creating enough tension. If they look confused at the end — add a clearer resolution. Tell it as if you're living it right now, not recounting a past event.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>Humour — types and how to use them</h4>
+    <p>A good sense of humour sub-communicates non-neediness — a man who can laugh at himself and the world signals he's not overly invested in how things turn out. The specific type matters less than having genuine humour.</p>
+    <div class="grid3">
+      <div class="card">
+        <h4>Misdirection</h4>
+        <p>Set up one expectation, deliver a completely different punchline. Most universally appreciated form of humour — works across almost all demographics.</p>
+        <div class="ex-box" style="font-size:0.78rem">Steve Martin: "You know that look women get when they want to have sex? ... Yeah, me neither."</div>
+      </div>
+      <div class="card">
+        <h4>Exaggeration</h4>
+        <p>Take something normal and blow it hilariously out of proportion. The more extreme and specific the exaggeration, the funnier it is.</p>
+        <div class="ex-box" style="font-size:0.78rem">"I've seen more attractive things in the bottom of an airport urinal." (vs. "she was ugly" — far less funny)</div>
+      </div>
+      <div class="card">
+        <h4>Teasing / Sarcasm / Roleplay</h4>
+        <p>Teasing works with most women. Sarcasm is rarer — love it or hate it. Roleplaying (marriage/divorce scenarios) creates immediate playful tension and is highly effective.</p>
+        <div class="ex-box" style="font-size:0.78rem">"That's it. We're getting divorced. You keep the kids — I'm moving to Europe."</div>
+      </div>
+    </div>
+    <p><strong>Warning about self-deprecation:</strong> Making fun of yourself for laughs is a needy behaviour in excess — you sacrifice your self-perception for a reaction. In small doses it humanises you. As a habit, it destroys attraction. Instead, turn the same jokes toward her (tease her) rather than yourself.</p>
+    <p style="margin-top:0.4rem"><strong>When a joke falls flat:</strong> Don't apologise. Don't explain it. Don't laugh at it yourself. Simply move on. The needy response to a failed joke — trying to rescue it — is more damaging than the failed joke itself.</p>
+  </div>
+</div>
+
+<!-- CH 13 -->
+<div class="ch-header"><span class="ch-num">Chapter 13</span><h3>The Dating Process — From Number to Second Date</h3></div>
+<div class="ch-body">
+  <div class="grid2">
+    <div class="full-card">
+      <h4>Phone numbers and texting rules</h4>
+      <ul class="tips">
+        <li>Only ask for her number if she seems genuinely interested AND you actually plan to follow up</li>
+        <li>Text within 24 hours: "Hey [name], it was nice meeting you." That's it — simple and direct</li>
+        <li>Next day: start a brief back-and-forth referencing something from when you met</li>
+        <li>Ask her out quickly — don't spend weeks building "text rapport." The heavy lifting was done in person</li>
+        <li><strong>Texts are for logistics:</strong> when, where, and what. NOT for demonstrating your personality or re-attracting her</li>
+        <li>"Three strikes you're out" — try up to three times with genuine effort. After that, let it go and move on</li>
+      </ul>
+      <div class="wr-box">Sending 4+ texts in a row when she doesn't respond / Trying to be witty or clever through elaborate texting / Sending "good morning" texts every day / Elaborate "re-attraction" texting schemes</div>
+      <div class="callout gold" style="text-align:left;margin-top:0.5rem">Manson's real text pattern: 7 total texts to confirm a date. "Hey Mary, nice meeting you." → logistics to set up time and place → see you there. That's it.</div>
+    </div>
+    <div class="full-card">
+      <h4>The perfect date — structure and behaviour</h4>
+      <p><strong>Structure:</strong></p>
+      <ul class="tips">
+        <li><strong>Time:</strong> Evening only — 6–9pm start. Never lunch. Avoid afternoon if possible.</li>
+        <li><strong>Duration:</strong> Three activities of 1–1.5 hrs each. Multiple venues create more shared experience in less time.</li>
+        <li><strong>Venue type:</strong> Active, participatory, allows touching and flirting. No movies. Avoid formal dinner dates.</li>
+        <li><strong>Location:</strong> Close to your place — fewer logistical barriers at the end of the night.</li>
+        <li><strong>Who pays:</strong> Pay unless she physically pulls out her wallet and stops you.</li>
+      </ul>
+      <div class="ex-box">Sample date: Coffee shop → ice cream down the street → check out the sculpture in the park nearby<br><br>Or: Salsa class → drinks next door → quick pizza → your place to "show her something"</div>
+      <p style="margin-top:0.5rem"><strong>How to behave:</strong></p>
+      <ul class="tips">
+        <li><strong>Always lead.</strong> Remove "what do you want to do?" from your vocabulary entirely.</li>
+        <li>Conversation gets deeper and more personal — less teasing, more genuine sharing</li>
+        <li>Get physical from the start — light touch early makes the kiss later feel natural</li>
+        <li>On dates: "Let's go grab tacos — I know a good spot." / "I'm going to beat you at bowling." You decide.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CH 14 -->
+<div class="ch-header"><span class="ch-num">Chapter 14</span><h3>Physicality and Sex — Leading to the Bedroom</h3></div>
+<div class="ch-body">
+  <div class="callout">"Getting physical quickly and comfortably is ultimately the difference between having a lot of female friends and having a lot of girlfriends and dates."</div>
+
+  <div class="full-card">
+    <h4>Why female arousal works differently</h4>
+    <p>Research suggests female arousal is more psychological than physical — women are aroused primarily by being <em>desired</em>, by being genuinely wanted. A man who communicates unbridled, genuine desire for her triggers arousal in a way that facts, credentials, and money simply cannot. This is why a man who is physically assertive — who clearly and unapologetically wants her — is so powerfully arousing, even if he's not conventionally the most attractive man in the room.</p>
+  </div>
+
+  <div class="full-card">
+    <h4>Physical escalation — the staircase (the frog in boiling water principle)</h4>
+    <p>Escalate gradually, step by step, so each level of touch feels like a natural progression from the last — never a sudden jump that startles her.</p>
+    <div class="grid2">
+      <div class="steps">
+        <div class="step-row"><div class="step-num">1</div><div class="step-text"><span class="step-title">Light conversational touch</span>Brush her forearm or arm to punctuate a joke or funny moment. Don't hold — just touch and release. Sets the physical tone from the beginning.</div></div>
+        <div class="step-row"><div class="step-num">2</div><div class="step-text"><span class="step-title">Playful physical interaction</span>Thumb war, twirling her, high-five that lingers, asking about her jewellery and lightly taking her hand, checking out something on her wrist.</div></div>
+        <div class="step-row"><div class="step-num">3</div><div class="step-text"><span class="step-title">Closer positioning</span>Stand or sit closer than is strictly "necessary." Let your arms or legs be in casual contact.</div></div>
+        <div class="step-row"><div class="step-num">4</div><div class="step-text"><span class="step-title">Arm around her</span>During a funny or exciting moment, put your arm around her shoulders briefly. Natural, warm, not forced.</div></div>
+      </div>
+      <div class="steps">
+        <div class="step-row"><div class="step-num">5</div><div class="step-text"><span class="step-title">Hand on her lower back</span>Guide her through a crowd with your hand on her lower back. Physical leadership is deeply attractive.</div></div>
+        <div class="step-row"><div class="step-num">6</div><div class="step-text"><span class="step-title">Hold her hand</span>Take her hand naturally when moving from one venue to another. Implies leadership and confidence.</div></div>
+        <div class="step-row"><div class="step-num">7</div><div class="step-text"><span class="step-title">The kiss</span>See the detailed technique below. When in doubt — go for it.</div></div>
+        <div class="step-row"><div class="step-num">8</div><div class="step-text"><span class="step-title">Taking her home</span>Give her plausible deniability. Low-pressure framing. See details below.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card">
+    <h4>Reading her signals — green, yellow, red</h4>
+    <div class="do-dont">
+      <div class="do-side">
+        <h5>Green light signals — continue escalating</h5>
+        <ul class="tips">
+          <li class="c">She reciprocates your touch — touches you back</li>
+          <li class="c">Sustained eye contact with genuine smiling</li>
+          <li class="c">She leans in closer than necessary</li>
+          <li class="c">She ignores her friends to keep talking to you</li>
+          <li class="c">She isolates herself with you ("let's go for a walk")</li>
+          <li class="c">She touches you first, unprovoked</li>
+          <li class="c">"Big doe eyes" — pupils visibly dilating</li>
+          <li class="c">She ditches her friends to stay with you</li>
+        </ul>
+      </div>
+      <div class="dont-side">
+        <h5>Red light signals — pull back gracefully</h5>
+        <ul class="tips">
+          <li class="x">She stiffens or pulls away from your touch</li>
+          <li class="x">She moves her body away from yours</li>
+          <li class="x">She crosses her arms or body away from you</li>
+          <li class="x">Short, closed-off one-word responses</li>
+          <li class="x">Frequent phone checking, distracted energy</li>
+        </ul>
+        <p style="margin-top:0.5rem;font-size:0.8rem"><strong>What to do:</strong> Don't make it awkward. Don't apologise excessively. Return naturally to the previous comfort level as if nothing happened. Continue building rapport. Wait for a better moment.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="full-card">
+      <h4>How to go for the kiss — exact method</h4>
+      <div class="callout gold" style="text-align:left;border-radius:8px;margin-bottom:0.75rem">"If you think you could kiss her, you probably could have ten minutes ago. When in doubt — go for it."</div>
+      <div class="steps">
+        <div class="step-row"><div class="step-num">1</div><div class="step-text">Ensure physical familiarity has already been built — don't go from zero touch to kissing</div></div>
+        <div class="step-row"><div class="step-num">2</div><div class="step-text">Find a moment with some privacy or reduced social pressure on her</div></div>
+        <div class="step-row"><div class="step-num">3</div><div class="step-text">Hold strong, steady eye contact — don't look away or break contact nervously</div></div>
+        <div class="step-row"><div class="step-num">4</div><div class="step-text">Let the conversation slow naturally to a quieter, more intimate register</div></div>
+        <div class="step-row"><div class="step-num">5</div><div class="step-text">Look at her lips briefly, then back to her eyes — the universal, instinctive signal</div></div>
+        <div class="step-row"><div class="step-num">6</div><div class="step-text">Lean in slowly and confidently — a deliberate lean, not a lunge. If she meets you — kiss her.</div></div>
+      </div>
+      <p style="margin-top:0.5rem;font-size:0.82rem"><strong>Rejected kiss:</strong> She turns her head away. Don't make it a big deal. Pull back smoothly, continue the conversation as if it didn't happen. Try again later when the moment is better.</p>
+    </div>
+    <div class="full-card">
+      <h4>Taking her home — plausible deniability</h4>
+      <p>Even when a woman wants to come home with you, her brain needs a story — a socially acceptable reason to justify the decision to herself. She can't consciously think "I'm going to sleep with this man I met 3 hours ago." She needs to be able to tell herself "we were just going to listen to music and one thing led to another."</p>
+      <p style="margin-top:0.5rem"><strong>Give her that story:</strong></p>
+      <div class="ex-box">"I've got a great pool table at mine — want to play a round?"<br>"Come try my legendary gin and tonic — I've been told it's dangerously good."<br>"I want to show you this track I've been obsessed with — my place is five minutes from here."<br>"Come for a drink — I promise I won't be boring."</div>
+      <p style="margin-top:0.5rem">You both implicitly know what going to your place likely means. The excuse just needs to give her rationalisation hamster enough to work with so she can tell herself "we were just going for drinks."</p>
+    </div>
+  </div>
+</div>
+
+<!-- MASTER SUMMARY -->
+<div class="divider"></div>
+<div class="part-banner">
+  <span class="part-label">Master Summary</span>
+  <h2>All 14 chapters — every key idea in one place</h2>
+</div>
+
+<div class="summary-container">
+  <div class="summary-row"><h4>Ch 1 — Non-Neediness</h4><p>Neediness is the #1 attraction killer — it overrides looks, money, and humour. It infiltrates everything you say and do. The solution is genuine self-investment: build a life you're proud of, develop your own values, and measure success by internal standards rather than her approval. Non-needy men attract quality women who genuinely respect them. Needy men attract chaotic, needy women who drain them.</p></div>
+  <div class="summary-row"><h4>Ch 2 — Vulnerability</h4><p>Vulnerability is the courage to expose your real self and accept that some people won't like it. It is not weakness — it is the highest-status thing a man can communicate. The Pain Period is real and unavoidable — your first attempts at opening up will be messy and embarrassing. Go through it anyway. You cannot skip the emotional debt you've accumulated by hiding yourself.</p></div>
+  <div class="summary-row"><h4>Ch 3 — The Gift of Truth</h4><p>Honesty only creates attraction when given unconditionally — with no expectation in return. The truth always shines through; you cannot fake non-neediness for long. Hold your limits firmly and calmly — it is one of the most attractive things a man can do. Find your inner truths first, because your neediness is rooted in unexamined emotional patterns. Walk away from friction and projection.</p></div>
+  <div class="summary-row"><h4>Ch 4 — Polarisation</h4><p>Three categories: Unreceptive (move on fast), Neutral (polarise immediately by expressing yourself), Receptive (escalate — make a move). The Friend Zone is created by failing to express interest early — it is almost impossible to escape. Prevent it by being honest and direct from the beginning. "Fuck Yes or No" — lukewarm responses are effectively no.</p></div>
+  <div class="summary-row"><h4>Ch 5 — Rejection and Success</h4><p>95% of rejection is situational — not about you. At any moment, most women you meet are dealing with circumstances completely unrelated to you. Reframe from "I hope she likes me" to "I wonder what she's like." Redefine success as maximising your happiness with whoever you choose — not as avoiding rejection, accumulating numbers, or impressing your friends.</p></div>
+  <div class="summary-row"><h4>Ch 6 — The Three Fundamentals</h4><p>Honest Living → quality of women you attract. Honest Action → quantity of women you approach and meet. Honest Communication → efficiency of converting attraction into real connection. All three are necessary and they feed each other. Identify which type you are (anxious or disconnected) and which fundamental to prioritise first.</p></div>
+  <div class="summary-row"><h4>Ch 7 — Demographics</h4><p>Like attracts like — you attract what you are. Find environments where the women you want to meet naturally exist because you share values. Your beliefs about women determine which women are attracted to you (the assortment effect). Looks and money matter — but they are not excuses. Attractive behaviour compensates for almost everything.</p></div>
+  <div class="summary-row"><h4>Ch 8 — Lifestyle and Presentation</h4><p>Fashion and fitness are the highest-impact improvements for attractiveness. Fit is the king of clothing — even mediocre clothes look great when they fit well. Exercise is non-negotiable. Body language — especially posture and eye contact — communicates before you open your mouth. Develop genuine opinions and unusual experiences to be memorable.</p></div>
+  <div class="summary-row"><h4>Ch 9 — Your Stories</h4><p>You have stories that justify inaction. They change form over time but never fully disappear — the resistance just changes shape. Identify your dominant defense mechanism: blame, apathy/avoidance, or intellectualising. Take full responsibility for your results — it is both uncomfortable and the most empowering move available to you. You are not a victim.</p></div>
+  <div class="summary-row"><h4>Ch 10 — Overcoming Anxiety</h4><p>She is rooting for you — every time you approach, she secretly hopes you're the man. Use incremental consistent exposure, not shock therapy. Build a staircase of progressively more difficult actions and climb it gradually. Focus on only one thing at a time. Always err on the side of boldness when you're uncertain. Courage is a habit built through use.</p></div>
+  <div class="summary-row"><h4>Ch 11 — Your Intentions</h4><p>Women hear intentions, not words. The same sentence is attractive or repellent depending entirely on the WHY behind it. Creepiness = hidden or misaligned intentions. Transparency reduces creepiness. Build emotional connection through feelings, not facts — relate to the emotions behind her experiences rather than the surface details.</p></div>
+  <div class="summary-row"><h4>Ch 12 — How to Flirt Better</h4><p>Flirting = expressing your sexuality in a way that makes her feel safe expressing hers. Teasing creates tension through mixed signals. Bold direct interest creates tension through exposed desire. Use effective language (no fillers), cold reading (statements over questions), jump-off points (endless conversation), story structure (set-up, conflict, resolution), and genuine humour without self-deprecation.</p></div>
+  <div class="summary-row"><h4>Ch 13 — The Dating Process</h4><p>Texts are for logistics only — 7 texts max to confirm a date. Three strikes you're out on flakes. Always lead on dates — decide venues, activities, and transitions. Multiple venues create more shared experience. Pay unless she physically stops you. Get physical from the start — light touch early makes the kiss feel natural later. Avoid movies and formal dinner dates.</p></div>
+  <div class="summary-row"><h4>Ch 14 — Physicality and Sex</h4><p>Women are aroused by being genuinely desired — by uninhibited, authentic want. Escalate progressively (the frog in boiling water principle — never jump levels). Read her signals continuously: green = continue, red = pull back gracefully without drama. "If you think you can kiss her, you probably could have ten minutes ago." Give her plausible deniability when suggesting she comes home.</p></div>
+</div>
+
+<!-- GLOSSARY -->
+<div class="part-banner">
+  <span class="part-label">Glossary</span>
+  <h2>Key terms from Models — quick reference</h2>
+</div>
+
+<div class="gloss-grid">
+  <div class="gloss-item"><strong>Non-Neediness</strong><span>Placing higher priority on your own perception of yourself than others' perceptions. The root of all attractive behaviour in the book.</span></div>
+  <div class="gloss-item"><strong>Neediness</strong><span>Placing higher priority on others' perceptions than your own. Infiltrates everything you say and do. The root of all unattractive behaviour.</span></div>
+  <div class="gloss-item"><strong>Vulnerability</strong><span>Being emotionally unguarded — expressing yourself honestly without inhibition, even when it risks rejection. The mechanism through which non-neediness is built.</span></div>
+  <div class="gloss-item"><strong>Investment</strong><span>How much you sacrifice your thoughts, feelings, and motivations for someone else. Less investment in her approval = more attractive to her.</span></div>
+  <div class="gloss-item"><strong>Seduction</strong><span>The process by which a man induces a woman to become as invested in him as he is in her. Sex is a side effect of successful seduction — not the goal itself.</span></div>
+  <div class="gloss-item"><strong>Polarisation</strong><span>Expressing yourself honestly to force a woman to decide how she feels about you. Moves Neutral women to Receptive or Unreceptive. Demonstrates non-neediness.</span></div>
+  <div class="gloss-item"><strong>Receptive</strong><span>A woman who is sexually/romantically attracted to you. She initiates or enthusiastically reciprocates. Strategy: escalate immediately.</span></div>
+  <div class="gloss-item"><strong>Neutral</strong><span>A woman who hasn't formed a strong opinion yet. Will polarise one way or the other. Strategy: express yourself honestly to force a decision before she drifts to Unreceptive.</span></div>
+  <div class="gloss-item"><strong>Unreceptive</strong><span>A woman who is not available or interested. Strategy: identify quickly and move on — no time or energy wasted trying to convince her.</span></div>
+  <div class="gloss-item"><strong>Friend Zone</strong><span>When a woman categorises you as a friend, not a sexual possibility. Almost impossible to escape. Prevention: express sexual interest early, directly, and confidently.</span></div>
+  <div class="gloss-item"><strong>Friction</strong><span>External circumstances that prevent sexual escalation despite mutual attraction — existing relationships, value incompatibilities, logistics, timing. Accept it and move on.</span></div>
+  <div class="gloss-item"><strong>Projection</strong><span>A woman attacking a man she's attracted to because her own past experiences make her afraid of that attraction. Walk away — only needy men put up with it.</span></div>
+  <div class="gloss-item"><strong>Demographics</strong><span>Like attracts like. Find environments where your ideal woman naturally exists because you share the same values and lifestyle context.</span></div>
+  <div class="gloss-item"><strong>Assortment Effect</strong><span>Your beliefs about women determine which women are attracted to you. Negative beliefs attract negative women. Positive beliefs attract positive women.</span></div>
+  <div class="gloss-item"><strong>Honest Living</strong><span>Fundamental 1. Building a lifestyle that genuinely reflects your values. Determines the quality of women you attract.</span></div>
+  <div class="gloss-item"><strong>Honest Action</strong><span>Fundamental 2. Overcoming fear and anxiety to act on your desires. Determines the quantity of women you approach and meet.</span></div>
+  <div class="gloss-item"><strong>Honest Communication</strong><span>Fundamental 3. Expressing yourself clearly and effectively. Determines efficiency of converting attraction into real connection.</span></div>
+  <div class="gloss-item"><strong>Pain Period</strong><span>The initial ugly phase of emotional growth when opening yourself up. Temporary but necessary and completely unavoidable.</span></div>
+  <div class="gloss-item"><strong>Cold Reading</strong><span>Making an educated guess about someone instead of asking a question. Creates more engaging conversations and makes you seem highly perceptive.</span></div>
+  <div class="gloss-item"><strong>Creepiness</strong><span>Expressing your sexuality in a way that makes a woman feel insecure. Caused by misaligned or hidden intentions — not specific words or topics.</span></div>
+  <div class="gloss-item"><strong>Unconditionality</strong><span>Giving or saying something with no expectation of anything in return. The only honest form that creates real attraction rather than resentment.</span></div>
+  <div class="gloss-item"><strong>Defense Mechanisms</strong><span>Psychological reactions that justify inaction. The three main types: Blame Game, Apathy/Avoidance, and Intellectualising.</span></div>
+  <div class="gloss-item"><strong>Flaking</strong><span>When a woman agrees to meet and then doesn't follow through. Usually signals insufficient attraction during the initial interaction — not something fixable through clever texts.</span></div>
+  <div class="gloss-item"><strong>Social Proof</strong><span>Being valued by many others increases your perceived value within a demographic context. Don't just join activities — lead them to maximise social proof.</span></div>
+</div>
+
+<!-- ACTION PLAN -->
+<div class="part-banner">
+  <span class="part-label">Action Plan</span>
+  <h2>Where to start — your step-by-step path</h2>
+</div>
+
+<div class="full-card">
+  <div class="grid2">
+    <div>
+      <p><strong>Level 1 — Foundation (complete all 5)</strong></p>
+      <ul class="tips">
+        <li class="c">Join a gym and make it a weekly habit</li>
+        <li class="c">Upgrade your wardrobe — fit first</li>
+        <li class="c">Get a proper haircut at a proper salon</li>
+        <li class="c">Address your job situation if unsatisfied</li>
+        <li class="c">Join one social hobby that regularly puts you around new people</li>
+      </ul>
+
+      <p style="margin-top:0.75rem"><strong>Level 2 — Meeting Women (complete 4 of 5)</strong></p>
+      <ul class="tips">
+        <li class="c">Figure out your demographic and where to find them</li>
+        <li class="c">Meet 5 women in one day</li>
+        <li class="c">Meet 20 women in one week</li>
+        <li class="c">Join an online dating site and message 10 women</li>
+        <li class="c">Sign up for a singles or speed dating event</li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>Level 3 — Getting to Know Women (complete 2 of 3)</strong></p>
+      <ul class="tips">
+        <li class="c">Hold 3 conversations of 30+ minutes with women you just met</li>
+        <li class="c">Get 3 phone numbers from women you just met</li>
+        <li class="c">Go on 2 dates</li>
+      </ul>
+
+      <p style="margin-top:0.75rem"><strong>Level 4 — Getting Intimate (complete 2 of 3)</strong></p>
+      <ul class="tips">
+        <li class="c">Kiss 2 women (since reading this)</li>
+        <li class="c">Go on a second date with the same woman</li>
+        <li class="c">Successfully get a woman back to your place</li>
+      </ul>
+
+      <p style="margin-top:0.75rem"><strong>Level 5 — Getting Sexual (complete both)</strong></p>
+      <ul class="tips">
+        <li class="c">Have sex with a woman you've never slept with before</li>
+        <li class="c">Go on 3 first dates with new women</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL QUOTE -->
+<div class="quote-box" style="margin-top:1.5rem">
+  <p>"Attract women through honesty. Not through lines. Not through techniques. Not through performance. Through the honest expression of who you actually are — rough edges, imperfections, desires, and all. Because ironically, that is what women find irresistible."</p>
+  <span class="src">Core message of Models — Mark Manson</span>
+</div>
+
+<div class="back-to-top">
+  <a href="#top">↑ Back to top</a>
+</div>
+
+</div>
+</body>
+</html>
